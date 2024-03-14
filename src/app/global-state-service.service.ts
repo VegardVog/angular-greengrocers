@@ -41,4 +41,8 @@ export class GlobalStateServiceService {
     return this.items$;
   }
 
+  resetCart() {
+    this.cart.next([]);
+  }
+
 }

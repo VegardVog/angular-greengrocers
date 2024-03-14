@@ -41,4 +41,10 @@ export class CartComponent implements OnDestroy{
   toStore() {
     this.router.navigate(["/"])
   }
+
+  checkout() {
+
+    this.globalState.resetCart();
+    this.router.navigate(["/"])
+  }
 }
