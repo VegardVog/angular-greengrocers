@@ -1,7 +1,8 @@
-import { Component, OnDestroy, inject } from '@angular/core';
-import { Item } from '../models/item';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Item } from '../../models/item';
 import { Subscription } from 'rxjs';
-import { GlobalStateServiceService } from '../global-state-service.service';
+import { GlobalStateServiceService } from '../../global-state-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,14 +12,17 @@ import { GlobalStateServiceService } from '../global-state-service.service';
 export class CartComponent implements OnDestroy{
 
   cart: Item[] = [];
+  router = inject(Router);
 
   private subscription: Subscription;
 
   constructor(private globalState: GlobalStateServiceService) {
-    this.subscription = this.globalState.items$.subscribe(cart => {
+    this.subscription = this.globalState.getCart().subscribe(cart => {
       this.cart = cart;
     })
   }
+
+
 
 
   removeItem(item: Item) {
@@ -34,5 +38,7 @@ export class CartComponent implements OnDestroy{
     this.subscription.unsubscribe();
   }
 
-  
+  toStore() {
+    this.router.navigate(["/"])
+  }
 }

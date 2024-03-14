@@ -1,0 +1,24 @@
+<button (click)="toStore()">To Store</button>
+<main id="cart">
+    <h2>Your Cart</h2>
+
+ 
+    <div class="cart--item-list-container">
+      <ul class="item-list cart--item-list">
+        <li *ngFor="let item of cart">
+          <img
+            class="cart--item-icon"
+            src="assets/icons/{{item.id}}.svg"
+            alt="{{item.name}}"
+          />
+          <p>{{item.name}}</p>
+          <button class="quantity-btn remove-btn center" (click)="removeItem(item)">-</button>
+          <span class="quantity-text center">{{item.quantity}}</span>
+          <button class="quantity-btn add-btn center" (click)="addItem(item)">+</button>
+        </li>
+      </ul>
+    </div>
+    <app-total>
+      
+    </app-total>
+</main> 

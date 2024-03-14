@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Item } from './models/item';
 
 @Injectable({
@@ -35,6 +35,10 @@ export class GlobalStateServiceService {
       }
 
     } 
+  }
+
+  getCart(): Observable<Item[]> {
+    return this.items$;
   }
 
 }

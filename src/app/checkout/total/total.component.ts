@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalStateServiceService } from '../global-state-service.service';
+import { GlobalStateServiceService } from '../../global-state-service.service';
 import { Subscription } from 'rxjs';
 
 @Component({

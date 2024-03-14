@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { ServiceService } from '../service.service';
-import { Item } from '../models/item';
-import { GlobalStateServiceService } from '../global-state-service.service';
+import { ServiceService } from '../../service.service';
+import { Item } from '../../models/item';
+import { GlobalStateServiceService } from '../../global-state-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-store',
@@ -15,6 +16,7 @@ export class StoreComponent implements OnInit{
   service = inject(ServiceService);
   groceries: Item[] = [];
   showGroceries: Item[] = [];
+  router = inject(Router)
   
 
   constructor(private globalState: GlobalStateServiceService) {
@@ -55,6 +57,9 @@ export class StoreComponent implements OnInit{
     this.showGroceries = this.groceries?.sort((a,b) =>a.name.localeCompare(b.name));
   }
 
+  toCheckout() {
+    this.router.navigate(["/checkout"])
+  }
 
 
 }

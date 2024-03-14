@@ -2,6 +2,7 @@
 <button (click)="filterByType()">Filter by type</button>
 <button (click)="sortByPrice()">Sort by price</button>
 <button (click)="sortByName()">Sort by name</button>
+<button (click)="toCheckout()">To Checkout</button>
 <ul class="item-list store--item-list" >
     <li *ngFor="let item of showGroceries">
       <div class="store--item-icon" >
@@ -13,5 +14,7 @@
       <button (click)="addToCart(item)">Add to cart</button>
     </li>
 </ul>
+
+
 
 
